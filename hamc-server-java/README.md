@@ -2,7 +2,7 @@
 
 This add-on allows for hosting a Minecraft Java server using Home Assistant. Based on the Minecraft server docker by [itzg](https://github.com/itzg/docker-minecraft-server).
 
-**Current version: 1.3.4** – Builds now normalize common x86_64 and ARM architecture names so the bundled Playit.gg agent downloads correctly on Intel/AMD hosts even when builders omit `BUILD_ARCH`.
+**Current version: 1.3.5** – Builds expand x86 alias coverage so the bundled Playit.gg agent continues to download correctly on Intel/AMD hosts using uncommon identifiers.
 
 ## Configuration
 

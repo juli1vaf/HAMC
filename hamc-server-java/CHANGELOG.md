@@ -1,5 +1,9 @@
 ## next
 
+## 1.3.5
+
+- Expand x86 architecture alias coverage so Playit agent downloads match more Intel/AMD host identifiers.
+
 ## 1.3.4
 
 - Normalize additional Intel/AMD and ARM architecture strings (e.g., `x86_64`, `armv8`) so the Playit agent downloads with the
