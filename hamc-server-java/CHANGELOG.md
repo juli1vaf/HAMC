@@ -1,5 +1,10 @@
 ## next
 
+## 1.3.2
+
+- Fix Playit agent installation so builds succeed even when both `BUILD_ARCH` and `TARGETARCH` are not supplied by falling back
+  to the host architecture.
+
 ## 1.3.1
 
 - Allow Playit agent installation to fall back to the Docker build target architecture when `BUILD_ARCH` is not set by the builder.
