@@ -2,7 +2,7 @@
 # 1 Build Image #
 #################
 
-ARG BUILD_FROM
+ARG BUILD_FROM="ghcr.io/home-assistant/amd64-base:3.19"
 ARG BUILD_VERSION
 FROM ${BUILD_FROM}
 
@@ -40,6 +40,23 @@ ENV PACKAGES=""
 # Automatic apps & bashio
 ADD "https://raw.githubusercontent.com/alexbelgium/hassio-addons/master/.templates/ha_autoapps.sh" "/ha_autoapps.sh"
 RUN chmod 744 /ha_autoapps.sh && /ha_autoapps.sh "$PACKAGES" && rm /ha_autoapps.sh
+
+# Playit.gg tunnel agent
+ARG TARGETARCH
+ARG BUILD_ARCH
+ARG PLAYIT_VERSION="latest"
+RUN set -eux; \
+    : "${TARGETARCH:=}"; \
+    : "${BUILD_ARCH:=${TARGETARCH}}"; \
+    if [ -z "${BUILD_ARCH}" ]; then BUILD_ARCH="$(uname -m)"; fi; \
+    case "${BUILD_ARCH}" in \
+        amd64|x86_64) playit_arch="amd64" ;; \
+        aarch64|arm64) playit_arch="arm64" ;; \
+        armv7|arm) playit_arch="arm" ;; \
+        *) echo "Unsupported architecture: ${BUILD_ARCH}" >&2; exit 1 ;; \
+    esac; \
+    curl -L -o /usr/local/bin/playit "https://github.com/playit-cloud/playit-agent/releases/${PLAYIT_VERSION}/download/playit-linux-${playit_arch}"; \
+    chmod +x /usr/local/bin/playit
 
 ################
 # 4 Entrypoint #
