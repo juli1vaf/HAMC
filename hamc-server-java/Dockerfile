@@ -41,6 +41,18 @@ ENV PACKAGES=""
 ADD "https://raw.githubusercontent.com/alexbelgium/hassio-addons/master/.templates/ha_autoapps.sh" "/ha_autoapps.sh"
 RUN chmod 744 /ha_autoapps.sh && /ha_autoapps.sh "$PACKAGES" && rm /ha_autoapps.sh
 
+# Playit.gg tunnel agent
+ARG PLAYIT_VERSION="latest"
+RUN set -eux; \
+    case "${BUILD_ARCH}" in \
+        amd64) playit_arch="amd64" ;; \
+        aarch64) playit_arch="arm64" ;; \
+        armv7) playit_arch="arm" ;; \
+        *) echo "Unsupported architecture: ${BUILD_ARCH}" >&2; exit 1 ;; \
+    esac; \
+    curl -L -o /usr/local/bin/playit "https://github.com/playit-cloud/playit-agent/releases/${PLAYIT_VERSION}/download/playit-linux-${playit_arch}"; \
+    chmod +x /usr/local/bin/playit
+
 ################
 # 4 Entrypoint #
 ################

@@ -1,5 +1,9 @@
 ## next
 
+## 1.3.0
+
+- Bundle the Playit.gg tunnel agent in the add-on image and allow starting it automatically alongside the Minecraft server.
+
 ## 1.2.0
 
 - Exposed the RCON port (25575) for remote console access. Ensure to set a strong `RCON_PASSWORD` in the configuration to use this feature.
