@@ -2,7 +2,7 @@
 # 1 Build Image #
 #################
 
-ARG BUILD_FROM
+ARG BUILD_FROM="ghcr.io/home-assistant/amd64-base:3.19"
 ARG BUILD_VERSION
 FROM ${BUILD_FROM}
 

@@ -15,6 +15,15 @@ The add-on bundles the [Playit.gg](https://playit.gg/) agent so the public tunne
 
 When enabled, the Playit agent starts automatically alongside the Minecraft server and keeps running for as long as the add-on is active.
 
+### Playit.gg tunnel
+
+The add-on bundles the [Playit.gg](https://playit.gg/) agent so the public tunnel can run inside the same container as the Minecraft server. To enable it:
+
+1. Set **PLAYIT_ENABLE** to `true` in the add-on options.
+2. Provide your **PLAYIT_SECRET** (the secret key from your Playit.gg account) so the agent can authenticate.
+
+When enabled, the Playit agent starts automatically alongside the Minecraft server and keeps running for as long as the add-on is active.
+
 To access the Minecraft server from outside your network, forward port 25565 (TCP) on your router. Then connect using:
 
 ```
