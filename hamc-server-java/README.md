@@ -1,4 +1,4 @@
-# HAMC Server (Java)
+# HAMC Server (Java) - JULIEN
 
 This add-on allows for hosting a Minecraft Java server using Home Assistant. Based on the Minecraft server docker by [itzg](https://github.com/itzg/docker-minecraft-server).
 
@@ -24,4 +24,5 @@ To access the Minecraft server from outside your network, forward port 25565 (TC
 ## References
 
 * Thanks to [alexbelgium](https://github.com/alexbelgium/hassio-addons) for the add-on template.
+
 * Thanks to [itzg](https://github.com/itzg/docker-minecraft-server) for the docker image.
