@@ -9,9 +9,8 @@ if bashio::config.true 'PLAYIT_ENABLE'; then
         bashio::log.info "Starting Playit.gg tunnel agent"
         mkdir -p /var/log /var/run
         playit_log="/var/log/playit.log"
-        playit_config="/data/playit.toml"
 
-        /usr/local/bin/playit --config "${playit_config}" --secret "$(bashio::config 'PLAYIT_SECRET')" >> "${playit_log}" 2>&1 &
+        SECRET_KEY="$(bashio::config 'PLAYIT_SECRET')" /usr/local/bin/playit >> "${playit_log}" 2>&1 &
         echo $! > /var/run/playit.pid
         bashio::log.info "Playit.gg agent started with PID $(cat /var/run/playit.pid)"
     fi
