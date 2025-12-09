@@ -2,6 +2,8 @@
 
 This add-on allows for hosting a Minecraft Java server using Home Assistant. Based on the Minecraft server docker by [itzg](https://github.com/itzg/docker-minecraft-server).
 
+**Current version: 1.3.3** – Builds now default `BUILD_ARCH` to the Docker target architecture (or host architecture) before downloading the bundled Playit.gg agent, preventing Playit install failures when builders omit `BUILD_ARCH`.
+
 ## Configuration
 
 All configuration is done using the add-on options. It allows for setting the environment variables found [here](https://github.com/itzg/docker-minecraft-server).
